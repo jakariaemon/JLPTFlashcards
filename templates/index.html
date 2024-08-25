@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Flash Card Generator for JLPT</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Flash Card Generator for JLPT</h1>
+        </header>
+        <div class="content">
+            <div class="sidebar">
+                <h2>Available Flashcard Sets</h2>
+                <div class="flashcard-list">
+                    {% if flashcard_sets %}
+                    <ul>
+                        {% for flashcard_set in flashcard_sets %}
+                        <li>
+                            <a href="{{ url_for('flashcard', set_id=flashcard_set.id) }}">{{ flashcard_set.name }}</a> 
+                            <small>({{ flashcard_set.timestamp.strftime('%Y-%m-%d') }})</small>
+                            <form action="{{ url_for('delete_set', set_id=flashcard_set.id) }}" method="POST" class="delete-form">
+                                <button type="submit" class="delete-button">&times;</button>
+                            </form>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>No flashcard sets available. Upload a CSV file to create a new set.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="flashcard-container">
+                <h2>Create New Flashcard Set</h2>
+                <form action="/" method="post" enctype="multipart/form-data">
+                    <input type="text" name="set_name" placeholder="Set Name (e.g., Chapter 1)" required>
+                    <input type="file" name="file" accept=".csv" required>
+                    <button type="submit">Generate Flashcard</button>
+                </form>
+                <div class="instructions">
+                    <h3>CSV Format</h3>
+                    <p>The CSV file should have the following columns in this order:</p>
+                    <ul>
+                        <li><strong>Hiragana</strong>: The Japanese hiragana reading</li>
+                        <li><strong>Kanji</strong>: The kanji character(s)</li>
+                        <li><strong>English</strong>: The English translation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

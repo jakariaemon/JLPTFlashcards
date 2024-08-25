@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ set_name }} - Flashcards</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ set_name }} - Flashcards</h1>
+        </header>
+        <div class="content">
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="front">
+                        <p>{{ vocab['Hiragana'] }}<br>({{ vocab['Kanji'] }})</p>
+                    </div>
+                    <div class="back">
+                        <p>{{ vocab['English'] }}</p>
+                    </div>
+                </div>
+                <form action="{{ url_for('flashcard', set_id=set_id) }}" method="POST" class="button-container">
+                    <button type="submit" name="action" value="known" class="know-button">Know</button>
+                    <button type="submit" name="action" value="unknown" class="unknown-button">Don't Know</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('flashcard').addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+    </script>
+</body>
+</html>

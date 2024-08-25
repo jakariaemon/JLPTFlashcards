@@ -1,0 +1,259 @@
+/* General Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container and Content Styling */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.content {
+    display: flex;
+    gap: 30px;
+}
+
+/* Sidebar Styling */
+.sidebar ul li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1em; /* Increase the font size of the list items */
+}
+
+.sidebar ul li a {
+    color: #1abc9c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar ul li small {
+    color: #555;
+    font-size: 0.95em; /* Slightly larger font size for the date */
+    margin-left: 10px; /* Increase space between the name and the date */
+    white-space: nowrap; /* Ensure the date stays on the same line */
+}
+
+.delete-form {
+    margin: 0;
+    padding: 0;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1em; /* Adjust size to match the increased text */
+    cursor: pointer;
+    padding: 2px 6px; /* Slightly increase padding for a better fit */
+    margin-left: 10px;
+    border-radius: 50%;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.delete-button:hover {
+    color: #ffffff;
+    background-color: #e74c3c;
+}
+
+/* Flashcard Container Styling */
+.flashcard-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.flashcard-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    font-size: 1em;
+    color: #2c3e50;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #1abc9c;
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+}
+
+button {
+    padding: 10px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #1abc9c;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #16a085;
+}
+
+/* CSV Format Instructions */
+.instructions {
+    margin-top: 30px;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border-radius: 5px;
+    color: #2c3e50;
+}
+
+.instructions h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.instructions ul li {
+    margin-bottom: 8px;
+}
+
+/* Flashcard Styling */
+.flashcard {
+    width: 350px;
+    height: 220px;
+    background-color: #34495e;
+    color: white;
+    font-size: 1.8em;
+    border-radius: 10px;
+    perspective: 1000px;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.flashcard .front,
+.flashcard .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.6s;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.flashcard .front {
+    background-color: #1abc9c;
+    color: #2c3e50;
+}
+
+.flashcard .back {
+    background-color: #34495e;
+    transform: rotateY(180deg);
+}
+
+.flashcard.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.flashcard.flipped .back {
+    transform: rotateY(0);
+}
+
+/* Button Styling */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    justify-content: center; /* Center the buttons */
+    width: auto; /* Ensure the container only takes the necessary width */
+}
+
+.know-button,
+.unknown-button {
+    padding: 8px 15px; /* Adjust padding for compact buttons */
+    font-size: 1em; /* Consistent font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: auto; /* Ensure buttons only take the necessary width */
+}
+
+.know-button {
+    background-color: #27ae60;
+    color: white;
+}
+
+.know-button:hover {
+    background-color: #229954;
+}
+
+.unknown-button {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.unknown-button:hover {
+    background-color: #c0392b;
+}
