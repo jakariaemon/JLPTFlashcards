@@ -2,6 +2,8 @@
 
 A web application designed to help you study for the Japanese Language Proficiency Test (JLPT) by creating and managing flashcards. Users can upload CSV files with vocabulary, automatically generate flashcard sets, study interactively using these flashcards, and track their progress over time.
 
+## Hosted URL: [JLPTFlashcards on Hugging Face](https://huggingface.co/spaces/emon-j/JLPTFlashcards)
+
 ## Features
 
 	•	CSV Upload: Upload your vocabulary files in CSV format to create flashcard sets.
